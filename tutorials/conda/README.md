@@ -117,7 +117,7 @@ blastn -query query_sequence.fasta -subject subject_sequences.fasta -evalue 1e-1
 ```
 
 ## Wrap-up
-That's your basic tutorial for using conda and BLAST! In summary (and outlook):
+That's your basic tutorial for using conda and BLAST! In summary (and to note for the future):
 - Now that miniconda is installed on your server account, you can easily install software tools for bioinformatics purposes
 - If you want to install a new tool on the server, always check first to see if it has a conda install option (more and more tools do these days). It will save you lots of time.
 - Running programs on the server is fairly simple. Type the program name followed by flags and/or arguments, then hit enter. The help page for each software tools will give you guidance on how to use it.
