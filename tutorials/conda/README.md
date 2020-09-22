@@ -42,6 +42,7 @@ conda activate blast
 
 You should now be able to see the BLAST help page:
 ```bash
+# BLASTN is nucleotide BLAST, compared to BLASTP, for example, which is for proteins:
 blastn -help
 ```
 
@@ -72,7 +73,7 @@ nano query_sequences.fasta
 
 It's pretty simple to run jobs on command line. With your BLAST conda environment turned on, run:
 ```bash
-blastn -query query_sequences.fasta -subject subject_sequences.fasta
+blastn -query query_sequence.fasta -subject subject_sequences.fasta
 ```
 A bunch of results should be printed to the screen.
 
@@ -80,14 +81,23 @@ A bunch of results should be printed to the screen.
 Let's break down the above command:
 - `blastn`: the name of the program that was installed via conda
 - `-query`: this is called a *flag*. It is basically a way to set a parameter on a software tool run on the server. In this case, if you looked at the help file for BLAST, you'd see that this flag is used to specify the filename of the query FASTA sequence
-- `query_sequences.fasta`: this is the filename of the query FASTA file on the server
+- `query_sequence.fasta`: this is the filename of the query FASTA file on the server
 - `-subject`: another flag
 - `subject_sequences.fasta`: another file
 
 There are lots of other flags you can set for a BLAST search as well, which you can see via `blastn -help`.
 
-For example, we can change the output format of BLAST:
+For example, we can make the e-value threshold of the search more strict (e.g., e < 10^-100) using the `-evalue` flag:
 ```bash
+blastn -query query_sequence.fasta -subject subject_sequences.fasta -evalue 1e-100
+```
 
+We can also change the output format of BLAST:
+```bash
+blastn -query query_sequence.fasta -subject subject_sequences.fasta -evalue 1e-100 -outfmt "6 qseqid sseqid pident evalue qcovhsp bitscore"
+```
 
+You can direct the output to a file using `>`:
+```bash
+blastn -query query_sequence.fasta -subject subject_sequences.fasta -evalue 1e-100 -outfmt "6 qseqid sseqid pident evalue qcovhsp bitscore" > blastn_results.tsv
 ```
