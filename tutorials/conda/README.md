@@ -77,10 +77,10 @@ wget https://raw.githubusercontent.com/neufeld/lab-server-training/master/tutori
 Note that FastA files are just text files. You can view them using some built-in text editors on the server. For example, try:
 ```bash
 # Print the whole file to the screen
-cat query_sequences.fasta
+cat query_sequence.fasta
 
 # Open an interactive text editor to see the file. You can exit afterwards by pressing control + x.
-nano query_sequences.fasta
+nano query_sequence.fasta
 ```
 
 ### Run the example BLAST command
